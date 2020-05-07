@@ -18,6 +18,7 @@ public class Bioskop implements Serializable{
     private String adresa;
     @Column
     private String broj_telefona_centrale;
+    private String e_mail;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Menadzer> menadzeri= new HashSet<Menadzer>();
@@ -31,13 +32,15 @@ public class Bioskop implements Serializable{
         this.naziv = "";
         this.adresa = "";
         this.broj_telefona_centrale = "";
+        this.e_mail="";
     }
 
-    public Bioskop(Long id, String naziv, String adresa, String broj_telefona_centrale) {
+    public Bioskop(Long id, String naziv, String adresa, String broj_telefona_centrale, String e_mail) {
         this.id = id;
         this.naziv = naziv;
         this.adresa = adresa;
         this.broj_telefona_centrale = broj_telefona_centrale;
+        this.e_mail=e_mail;
     }
 
     public Long getId() {
@@ -70,5 +73,13 @@ public class Bioskop implements Serializable{
 
     public void setBroj_telefona_centrale(String broj_telefona_centrale) {
         this.broj_telefona_centrale = broj_telefona_centrale;
+    }
+
+    public String getE_mail() {
+        return e_mail;
+    }
+
+    public void setE_mail(String e_mail) {
+        this.e_mail = e_mail;
     }
 }

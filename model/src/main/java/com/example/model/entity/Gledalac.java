@@ -14,20 +14,20 @@ public class Gledalac extends Korisnik {
     @JoinTable(name = "odgledani_filmovi",
             joinColumns = @JoinColumn(name = "gledalac_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"))
-    private Set<Film> odgledaniFilmovi = new HashSet<>();
+    private Set<Film> odgledaniFilmovi = new HashSet<Film>();
 
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "rezervisani_filmovi",
             joinColumns = @JoinColumn(name = "gledalac_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"))
-    private Set<Film> rezervisaniFilmovi = new HashSet<>();
+    private Set<Film> rezervisaniFilmovi = new HashSet<Film>();
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "ocenjeni_filmovi",
             joinColumns = @JoinColumn(name = "gledalac_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ocenjen_film_id", referencedColumnName = "id"))
-    private Set<Ocena> ocenjeniFilmovi = new HashSet<>();
+    private Set<Ocena> ocenjeniFilmovi = new HashSet<Film>();
 
 
     public Gledalac(Set<Film> odgledaniFilmovi, Set<Film> rezervisaniFilmovi, Set<Ocena> ocenjeniFilmovi) {
